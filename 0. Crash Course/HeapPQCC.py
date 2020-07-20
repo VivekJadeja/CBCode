@@ -1,6 +1,4 @@
 import heapq
-
-import heapq
 heap = []
 # This heapq.heappush(item) ensures that heap[0] is the SMALLEST element.
 # heappush() takes O(log n) time.

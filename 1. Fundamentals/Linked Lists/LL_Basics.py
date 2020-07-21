@@ -74,6 +74,20 @@ class LinkedList:
             curr_node.next = None
             curr_node = None
         self._size -= 1
+
+# 2 edge cases with reversing a LL
+#   Empty LL
+#   LL with only one Node
+
+    def reverseLinkedList(self):
+        curr = self.head
+        prv = None
+        while curr:
+            nxt = curr.next
+            curr.next = prv
+            prv = curr
+            curr = nxt
+        self.head = prv
         
     # Returning size is O(1) for both because we are just return a value from a variable
     def size(self):
@@ -91,3 +105,17 @@ if __name__ == "__main__":
     for i in range(6,11):
         linkedlist.insertLast(i)
     print(linkedlist)
+    linkedlist.reverseLinkedList()
+    print(linkedlist)
+
+# EMPTY LL EDGE CASE
+    newLL = LinkedList()
+    print(newLL)
+    newLL.reverseLinkedList()
+    print(newLL)
+
+# LL WITH ONE NODE EDGE CASE
+    newLL.insertFront(1)
+    print(newLL)
+    newLL.reverseLinkedList()
+    print(newLL)

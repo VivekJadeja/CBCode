@@ -64,6 +64,7 @@ class LinkedList:
             curr_node.next = new_node
         self._size += 1
 
+
     # O(1) time and space complexity to remove from beginning of a LL
     def removeBeginning(self):
         assert(self.size() > 0) # Can use this or you can just check if the self.head exists
@@ -74,6 +75,16 @@ class LinkedList:
             curr_node.next = None
             curr_node = None
         self._size -= 1
+
+    # O(n) time and space complexity for recursive search of linked list, O(n) time for iterative but O(1) space
+    def search_recursive(self, node, data):
+        if not node:
+            return False
+        
+        if node.data is data:
+            return True
+        
+        return search_recursive(node.next, data)
 
 # 2 edge cases with reversing a LL
 #   Empty LL
